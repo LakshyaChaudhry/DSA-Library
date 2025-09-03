@@ -22,4 +22,4 @@ target = 4
 result = binary_search(array, target)
 print(result)
 
-# Time complecicy of binary search is O(log n) since it divides the search space by half each comparison
+# Time complecxity of binary search is O(log n) since it divides the search space by half each comparison
