@@ -18,7 +18,6 @@ def bucket_sort(arr):
     
     return arr
 
-array = [5,7,6,5]
-print(bucket_sort(array))
+
 
     
