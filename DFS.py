@@ -1,5 +1,8 @@
 #this file is for my DFS implementations
 #DFS can be implemented 3 ways, in-order, pre-order and post-order
+# in order: L -> Root -> R
+# pre order: Root -> L -> R
+# post order: R-> L -> root
 
 def inorder_traversal(root):
     if root == None:
