@@ -19,7 +19,7 @@ def delete_node(head, key):
     if head == None:
         return head
     
-    if head == key:
+    if head.data == key:
         temp = head
         head.next.prev = None
         head = head.next
