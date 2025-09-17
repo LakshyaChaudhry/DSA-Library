@@ -1,28 +1,41 @@
-#delete node from singly linked list
+#this file is for creating a doubly linked list
 
 class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
+        self.prev = None
+
+
+def traverse_DLL(head, key):
+    curr = head
+    while curr != None:
+        if curr.data == key:
+            return True
+        curr = curr.next
+    return False
 
 def delete_node(head, key):
     if head == None:
         return head
     
-    if head.data == key:
+    if head == key:
         temp = head
+        head.next.prev = None
         head = head.next
         temp = None
         return head
-
-    prev = head
-    curr = head.next
+    
+    curr = head
     while curr != None and curr.data != key:
-        prev = curr
         curr = curr.next
     
     if curr != None:
-        prev.next = curr.next
+        curr.next.prev = curr.prev
+        curr.prev.next = curr.next
         curr = None
     return head
+
+
+
 
