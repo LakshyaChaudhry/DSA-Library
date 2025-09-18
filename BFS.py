@@ -1,4 +1,4 @@
-#this is for bfs traversal
+#this is for bfs traversal / also level order traversal
 
 from collections import deque
 
