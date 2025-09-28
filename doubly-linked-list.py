@@ -38,4 +38,3 @@ def delete_node(head, key):
 
 
 
-
