@@ -1,0 +1,19 @@
+#this file is for the implementation of counting sort algorithm
+
+def counting_sort(arr):
+    min_val = min(arr)
+    max_val = max(arr)
+    range_arr = max_val - min_val + 1
+
+    arr_counts = [0] * range_arr
+
+    for i in range(len(arr)):
+        arr_counts [arr[i] - min_val] += 1
+
+    n = 0
+    for i in range(len(arr_counts)):
+        for j in range(arr_counts[i]):
+            arr[n] = i + min_val
+            n += 1
+    
+    return arr
