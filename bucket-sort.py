@@ -1,21 +1,48 @@
-#apparently a forbidden algorithm in industry since values in the array need to be within a finite range
+# Bucket sort works best with uniformly distributed data
+# Divides elements into buckets, sorts each bucket, then concatenates
 
 def bucket_sort(arr):
+    if len(arr) == 0:
+        return arr
+
+    # Determine the number of buckets
+    num_buckets = len(arr)
     min_val = min(arr)
     max_val = max(arr)
-    range_arr = max_val - min_val + 1
 
-    arr_counts = [0] * range_arr
+    # Handle edge case where all elements are the same
+    if min_val == max_val:
+        return arr
 
-    for i in range(len(arr)):
-        arr_counts[arr[i] - min_val] += 1
+    # Create empty buckets
+    buckets = [[] for _ in range(num_buckets)]
 
-    n = 0
-    for i in range(len(arr_counts)):
-        for j in range(arr_counts[i]):
-            arr[n] = i + min_val
-            n += 1
-    
+    # Distribute elements into buckets
+    bucket_range = (max_val - min_val) / num_buckets
+
+    for num in arr:
+        # Calculate which bucket this element belongs to
+        # TODO(human)
+        pass
+
+    # Sort individual buckets and concatenate
+    sorted_arr = []
+    for bucket in buckets:
+        # Using insertion sort for each bucket (efficient for small lists)
+        sorted_arr.extend(insertion_sort(bucket))
+
+    return sorted_arr
+
+
+def insertion_sort(arr):
+    """Helper function to sort individual buckets"""
+    for i in range(1, len(arr)):
+        key = arr[i]
+        j = i - 1
+        while j >= 0 and arr[j] > key:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = key
     return arr
 
 
